@@ -123,5 +123,5 @@ module.exports = function (RED) {
       done();
     });
   }
-  RED.nodes.registerType("comparadorPesoTOS", comparadorPesoTOS);
+  RED.nodes.registerType("comparador peso TOS", comparadorPesoTOS);
 };
