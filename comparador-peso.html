@@ -1,0 +1,67 @@
+<script type="text/javascript">
+    RED.nodes.registerType('comparadorPesoTOS',{
+        category: 'tos',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:3,
+        icon: "font-awesome/fa-balance-scale",
+        label: function() {
+            return this.name||"comparadorPesoTOS";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="comparadorPesoTOS">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="comparadorPesoTOS">
+    <p>Comparador peso TOS</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>msg
+            <span class="property-type">string</span>
+        </dt>
+        <dd>msg  </dd>
+        <p><code>msg.operador</code> Indica operador da comparação =, >, >=, <, <=  </p>
+        <p><code>msg.variavel_peso</code> Indica a variavel peso global para comparação</p>
+        <p><code>msg.peso_comparar</code> Indica o valor de peso para comparação</p>
+        <p><code>msg.intervalo_verificacao</code> Indica o intervalo em ms para verificação da variavel</p>
+        <p><code>msg.quantidade_amostra</code> Indica a quantidade de vezes que deve ser atendida a
+             condição de acordo com operação</p>
+        
+        <p><code>msg.tentativas</code> Indica o numero maximo de tentativas de verificação para satisfazer
+             a condição de acordo com operação</p>
+
+    </dl>
+
+    <h3>Outputs</h3>
+     <ol class="node-ports">
+         <li>done
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">boolean</span></dt>
+                 <dd>true. Indica se foi satisfeita a regra solicitada</dd>
+             </dl>
+         </li>
+         <li>timeout
+             <dl class="message-properties">
+                 <dt>payload <span class="property-type">boolean</span></dt>
+                 <dd>true. Indica que esgotou o numero de tentativas de verificação e a condição não foi atendida.</dd>
+             </dl>
+         </li>
+         <li>error
+            <dl class="message-properties">
+                <dt>payload <span class="property-type">string</span></dt>
+                <dd>Indica erros ocorridos.</dd>
+            </dl>
+        </li>
+     </ol>
+
+
+</script>
