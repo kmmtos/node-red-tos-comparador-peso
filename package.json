@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "Comparador pesos",
   "main": "comparador-peso.js",
-  "repository": {
-    "url": "https://npm.pkg.github.com/@kmmtos"
-  },
+  "repository":{
+    "url" : "https://github.com/kmmtos/node-red-tos-comparador-peso.git"
+ },
+ "publishConfig": {
+   "registry": "https://npm.pkg.github.com/@kmmtos"
+ },
   "node-red" : {
     "nodes": {
         "comparador-peso": "comparador-peso.js"
